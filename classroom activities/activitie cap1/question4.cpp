@@ -14,11 +14,11 @@ typedef struct {
 
 int main(){
 
-    char valor[3]={"um"};
+    char valor[3] = {"um"};
     Str v = {"123"};
     int i=0;
 
-    while (i<=strlen(v.valor)){
+    while (i<strlen(v.valor)){
         cout<<i<<"--"<<v.valor[i]<<endl;
         i++;
     }
@@ -31,6 +31,6 @@ int main(){
         j++;
     }
 
-    cout<<"valor de j: "<<j<<endl;      // 4
-    cout<<"valor de i: "<<i<<endl;      // 2
+    cout<<"valor de i: "<<i<<endl;      // 4
+    cout<<"valor de j: "<<j<<endl;      // 2
 }
