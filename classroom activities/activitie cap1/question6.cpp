@@ -10,6 +10,7 @@ lista.
 
 
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 typedef struct no {
@@ -19,13 +20,33 @@ typedef struct no {
 
 } *Lst;
 
-Lst createNo(int value, Lst next){
+Lst createNo(int value){
     
-    Lst lst = (struct no*) malloc(sizeof(struct no));
-    lst->item = value;
-    lst->next = next;
-    return lst;
+    Lst current = (Lst) malloc(sizeof(struct no));
+    current->item = value;
+    current->next = NULL;
+    
+    return current;
+}
 
+Lst enterInQueue(Lst queue, int value){
+
+    Lst current = createNo(value);
+
+    if (queue == NULL){
+        return current;
+    }
+
+    Lst aux = queue;
+
+    while (aux->next != NULL)
+    {
+        aux = aux->next;
+    }
+
+    aux->next = current;
+    return queue;
+    
 }
 
 int main()
@@ -39,14 +60,15 @@ int main()
 
     for ( int i = 0; i < quantityItems; i++){
         cin >> currentValue;
-        l = createNo(currentValue, l);
+        // l = createNo(currentValue, l);
+        l = enterInQueue(l, currentValue);
     }
         
 
 
     // show values
-    while (l){
-        cout << "v item: " << l->item << endl;
+    while (l != NULL){
+        cout << "value item: " << l->item << endl;
         l = l->next;
     }
 
