@@ -80,3 +80,17 @@ int getLast(List list){
     if (list->next == NULL) return list->value;
     getLast(list->next);
 }
+
+List getReversed(List list) {
+}
+
+int sum(List list) {
+    if (list == NULL) return 0;
+    return list->value + sum(list->next);
+}
+
+List replace(int sourceValue, int newValue, List list) {
+    if(list == NULL) return list;
+    if(list->value == sourceValue) list->value = newValue;
+    return replace(sourceValue, newValue, list->next);
+}
