@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-
 typedef char Itemp;
 
 typedef struct stack {
@@ -60,4 +59,13 @@ void destroy(Stack *stack) {
     free((*stack)->item);
     free(*stack);
     *stack = NULL;
+}
+
+Itemp pick(Stack stack){
+    if(isEmpty(stack)) {
+        printf("stack is empty");
+        abort();
+    }
+
+    return stack->item[stack->top];
 }
